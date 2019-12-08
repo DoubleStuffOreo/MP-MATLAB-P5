@@ -1,0 +1,22 @@
+n = 0:199;
+
+fprintf('n = 0:199')
+x = input('\nEnter value x(n): ');
+y = zeros(1, length(x));
+
+for n1 = 0:199;
+    if n1 == 0
+        y(n1+1) = -1.5*x(n1+1) + 2*x(n1+2) - 0.5*x(n1+3);
+        
+    elseif (0<n1) && (n1<198)
+        y(n1+1) = 0.5*x(n1+2) - 0.5*x(n1);
+        
+    elseif n1 == 199
+        y(n1+1) = 1.5*x(n1+1) - 2*x(n1) + 0.5*x(n1-1);
+        
+    end
+end
+       
+plot(n, x, ':m', n, y, '-.b')
+legend('y(n)', 'x(n)')
+xlim([0 199])
